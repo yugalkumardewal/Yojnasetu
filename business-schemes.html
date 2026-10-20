@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Explore official Indian government scheme portals and find possible business support based on your goals.">
+    <title>Business Scheme Finder | Yojna Setu</title>
+    <link rel="stylesheet" href="yojnasetu.css">
+</head>
+<body class="finder-page">
+    <main class="finder-shell">
+        <header class="finder-header">
+            <a class="finder-brand" href="/" aria-label="Yojna Setu home">
+                <img src="yojnasetu-logo.png" alt="">
+                <span>Yojna<span>Setu</span></span>
+            </a>
+            <div class="finder-account-actions">
+                <a class="finder-signin" href="#account-profile">मेरा प्रोफ़ाइल / My profile</a>
+                <button id="logout-button" class="logout-button" type="button">लॉग आउट / Sign out</button>
+            </div>
+        </header>
+
+        <section id="account-profile" class="account-profile" aria-labelledby="profile-heading" hidden>
+            <div class="profile-avatar" id="profile-avatar" aria-hidden="true">YS</div>
+            <div class="profile-content">
+                <div class="profile-heading-row">
+                    <div>
+                        <p class="profile-eyebrow">आपका खाता / YOUR ACCOUNT</p>
+                        <h2 id="profile-heading"><span id="profile-name"></span><span class="profile-greeting">नमस्ते / Namaste!</span></h2>
+                    </div>
+                    <span class="profile-id" id="profile-account-id"></span>
+                </div>
+                <dl class="profile-details">
+                    <div><dt>ईमेल / Email</dt><dd id="profile-email"></dd></div>
+                    <div><dt>फ़ोन / Phone</dt><dd id="profile-phone"></dd></div>
+                    <div><dt>भाषा / Language</dt><dd id="profile-language"></dd></div>
+                    <div><dt>सदस्य बने / Member since</dt><dd id="profile-created"></dd></div>
+                </dl>
+                <p id="profile-status" class="profile-status" role="status" aria-live="polite"></p>
+            </div>
+        </section>
+
+        <section class="finder-hero" aria-labelledby="finder-title">
+            <p class="eyebrow">आपके कारोबार की योजना / YOUR BUSINESS DASHBOARD</p>
+            <h1 id="finder-title">अपने काम के लिए मदद खोजें / Find support for your business.</h1>
+            <p id="finder-language-prompt">बस अपनी भाषा चुनें और अपने काम के बारे में बताएं। / Choose your language and tell us about your business.</p>
+            <div class="audio-assist finder-audio-assist" aria-label="Spoken help">
+                <label for="audio-language">आवाज़ / Audio</label>
+                <select id="audio-language" aria-label="Audio language">
+                    <option value="hi-IN">हिंदी में सुनें / Hindi</option>
+                    <option value="en-IN">Listen in English</option>
+                </select>
+                <button class="listen-button" type="button" data-audio-guide="finder" aria-pressed="false">
+                    <span aria-hidden="true">🔊</span> तरीका सुनें / Hear how
+                </button>
+                <span id="audio-status" class="audio-status" role="status" aria-live="polite"></span>
+            </div>
+        </section>
+
+        <div class="finder-disclaimer">
+            <strong>जानकारी, मंजूरी नहीं / Guidance, not an eligibility decision.</strong>
+            यह भारत-भर की चुनिंदा केंद्रीय योजनाओं की सूची है, हर राज्य/विभाग की पूरी live सूची नहीं। नए आवेदन और नियम आधिकारिक साइट पर जांचें। / This is a curated national catalogue, not a live list of every state and department scheme. Confirm current rules on official sites.
+        </div>
+
+        <section class="finder-content" aria-label="Business scheme finder">
+            <form id="business-finder-form" class="finder-form">
+                <div class="finder-form-heading">
+                    <span class="step-badge" aria-hidden="true">01</span>
+                    <div>
+                        <h2>आपको किस मदद की ज़रूरत है? / What help do you need?</h2>
+                        <p>एक तस्वीर वाला विकल्प दबाएं। / Tap a picture to choose.</p>
+                    </div>
+                </div>
+
+                <div class="goal-shortcuts" aria-label="जल्दी लक्ष्य चुनें / Quick goal selection">
+                    <button type="button" data-goal-shortcut="funding">💰 ऋण / Loan</button>
+                    <button type="button" data-goal-shortcut="start">🚀 नया काम / Start</button>
+                    <button type="button" data-goal-shortcut="equipment">⚙️ मशीन / Equipment</button>
+                    <button type="button" data-goal-shortcut="procurement">🏛️ सरकार को बेचें / Sell to govt.</button>
+                </div>
+
+                <div class="form-field">
+                    <label for="business-goal">आपका लक्ष्य / Your goal</label>
+                    <select id="business-goal" name="goal" required>
+                        <option value="">एक लक्ष्य चुनें / Choose a goal</option>
+                        <option value="start">नया कारोबार शुरू करें / Start a new business</option>
+                        <option value="funding">कारोबार के लिए पैसा / Get a business loan</option>
+                        <option value="equipment">मशीन खरीदें या सुधार करें / Buy equipment or improve</option>
+                        <option value="artisan">कारीगरी के काम में मदद / Support for traditional work</option>
+                        <option value="procurement">सरकार को सामान या सेवा बेचें / Sell to government</option>
+                        <option value="startup">स्टार्टअप बढ़ाएं / Grow a startup</option>
+                        <option value="export">विदेश में सामान बेचें / Export goods</option>
+                        <option value="delayed-payment">रुका हुआ भुगतान पाएं / Recover a delayed payment</option>
+                        <option value="explore">सभी योजनाएं देखें / Explore business support</option>
+                    </select>
+                </div>
+
+                <fieldset class="business-types">
+                    <legend>आप कौन-सा काम करते हैं? <span class="optional-label">(What kind of business?)</span></legend>
+                    <div class="business-type-options">
+                        <label class="business-type-option">
+                            <input type="radio" name="industry" value="food">
+                            <span aria-hidden="true">🍲</span><span>खाना / Food</span>
+                        </label>
+                        <label class="business-type-option">
+                            <input type="radio" name="industry" value="agriculture">
+                            <span aria-hidden="true">🌾</span><span>खेती / Farming</span>
+                        </label>
+                        <label class="business-type-option">
+                            <input type="radio" name="industry" value="textile">
+                            <span aria-hidden="true">🧵</span><span>सिलाई / कपड़ा</span>
+                        </label>
+                        <label class="business-type-option">
+                            <input type="radio" name="industry" value="retail">
+                            <span aria-hidden="true">🏪</span><span>दुकान / Shop</span>
+                        </label>
+                        <label class="business-type-option">
+                            <input type="radio" name="industry" value="street-vendor">
+                            <span aria-hidden="true">🛒</span><span>ठेला / Street vendor</span>
+                        </label>
+                        <label class="business-type-option">
+                            <input type="radio" name="industry" value="artisan">
+                            <span aria-hidden="true">🛠️</span><span>कारीगरी / हुनर</span>
+                        </label>
+                        <label class="business-type-option">
+                            <input type="radio" name="industry" value="manufacturing">
+                            <span aria-hidden="true">⚙️</span><span>मशीन / बनाना</span>
+                        </label>
+                        <label class="business-type-option">
+                            <input type="radio" name="industry" value="service">
+                            <span aria-hidden="true">🧰</span><span>सेवा / Repair</span>
+                        </label>
+                        <label class="business-type-option">
+                            <input type="radio" name="industry" value="other">
+                            <span aria-hidden="true">💡</span><span>कुछ और / Not sure</span>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div id="goal-followup" class="form-field" hidden>
+                    <label id="followup-label" for="goal-detail"></label>
+                    <select id="goal-detail" name="detail"></select>
+                </div>
+
+                <div class="form-field">
+                    <label for="business-activity">आपका काम / Business type <span class="optional-label">(optional)</span></label>
+                    <input type="text" id="business-activity" name="activity" placeholder="जैसे सिलाई, खाना बनाना / e.g. tailoring, food processing">
+                </div>
+
+                <div class="form-field">
+                    <label for="business-query">आपको किस चीज़ में मदद चाहिए? <span class="optional-label">(What help do you need? Optional)</span></label>
+                    <textarea id="business-query" name="query" rows="3" placeholder="Example: मुझे छोटी दुकान के लिए मशीन खरीदने में मदद चाहिए"></textarea>
+                    <div class="voice-controls">
+                        <label class="voice-language-label" for="voice-language">बोलने की भाषा / Language</label>
+                        <select id="voice-language" aria-label="Choose your language / अपनी भाषा चुनें">
+                            <option value="hi-IN">हिंदी / Hindi</option>
+                            <option value="as-IN">অসমীয়া / Assamese</option>
+                            <option value="bn-IN">বাংলা / Bengali</option>
+                            <option value="brx-IN">बड़ो / Bodo</option>
+                            <option value="doi-IN">डोगरी / Dogri</option>
+                            <option value="gu-IN">ગુજરાતી / Gujarati</option>
+                            <option value="kn-IN">ಕನ್ನಡ / Kannada</option>
+                            <option value="ks-IN">कॉशुर / Kashmiri</option>
+                            <option value="kok-IN">कोंकणी / Konkani</option>
+                            <option value="mai-IN">मैथिली / Maithili</option>
+                            <option value="ml-IN">മലയാളം / Malayalam</option>
+                            <option value="mni-IN">মেইতেই / Manipuri (Meitei)</option>
+                            <option value="mr-IN">मराठी / Marathi</option>
+                            <option value="ne-IN">नेपाली / Nepali</option>
+                            <option value="or-IN">ଓଡ଼ିଆ / Odia</option>
+                            <option value="pa-IN">ਪੰਜਾਬੀ / Punjabi</option>
+                            <option value="sa-IN">संस्कृतम् / Sanskrit</option>
+                            <option value="sat-IN">ᱥᱟᱱᱛᱟᱲᱤ / Santali</option>
+                            <option value="sd-IN">سنڌي / Sindhi</option>
+                            <option value="ta-IN">தமிழ் / Tamil</option>
+                            <option value="te-IN">తెలుగు / Telugu</option>
+                            <option value="ur-IN">اردو / Urdu</option>
+                            <option value="en-IN">English / अंग्रेज़ी</option>
+                        </select>
+                        <button id="voice-input-button" class="voice-input-button" type="button" aria-pressed="false">
+                            <span aria-hidden="true">🎙</span> बोलकर बताएं / Speak
+                        </button>
+                    </div>
+                    <p id="voice-status" class="field-hint" role="status" aria-live="polite">अपनी भाषा चुनें, माइक दबाएं और बोलें। / Choose your language, tap the mic, and speak.</p>
+                    <small class="field-hint">माइक की सुविधा आपके ब्राउज़र पर निर्भर है। बोलने की पहचान ब्राउज़र की सेवा से हो सकती है; लिखी बात की योजना-जांच आपके डिवाइस पर चलती है। / Mic support depends on your browser. Speech recognition may use its speech service; typed-text matching runs locally.</small>
+                </div>
+
+                <button type="submit">मेरी योजनाएं दिखाएं / Show my schemes <span aria-hidden="true">→</span></button>
+            </form>
+
+            <section id="scheme-results" class="scheme-results" aria-labelledby="results-title" aria-live="polite">
+                <div class="results-empty">
+                    <span class="results-icon" aria-hidden="true">↗</span>
+                    <h2 id="results-title">आपकी योजनाएं यहां दिखेंगी / Your shortlist will appear here</h2>
+                    <p>पहले अपना लक्ष्य चुनें। / Choose your goal to see matching schemes.</p>
+                </div>
+            </section>
+        </section>
+
+        <footer class="finder-footer">
+            <a href="https://www.myscheme.gov.in/" target="_blank" rel="noopener noreferrer">केंद्र और राज्य की योजनाएं खोजें / Search central &amp; state schemes on myScheme.gov.in ↗</a>
+            <a href="https://www.jansamarth.in/" target="_blank" rel="noopener noreferrer">कर्ज़ वाली योजनाएं / Credit-linked schemes on JanSamarth ↗</a>
+            <span>अंतिम पात्रता और आवेदन संबंधित सरकारी पोर्टल पर जांचें। / Check eligibility and applications on the official portal.</span>
+        </footer>
+    </main>
+    <script src="yojnasetu.js" defer></script>
+</body>
+</html>

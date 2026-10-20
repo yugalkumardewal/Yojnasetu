@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>साइन इन / Sign in | Yojna Setu</title>
+    <link rel="stylesheet" href="yojnasetu.css">
+</head>
+<body>
+    <div class="welcome-splash" aria-hidden="true">
+        <div class="welcome-orbit welcome-orbit-one"></div>
+        <div class="welcome-orbit welcome-orbit-two"></div>
+        <div class="welcome-card">
+            <div class="welcome-logo">
+                <img src="yojnasetu-logo.png" alt="">
+            </div>
+            <p class="welcome-name">Yojna <span>Setu</span></p>
+            <p class="welcome-message">सरकारी मदद, आपके करीब<br><span>Government support, closer to you</span></p>
+        </div>
+    </div>
+    <main class="page-shell">
+        <section class="login-panel" aria-labelledby="login-title">
+            <div class="login-card">
+                <div class="logo-frame">
+                    <img class="login-logo" src="yojnasetu-logo.png" alt="Yojna Setu — Connecting Schemes to People">
+                </div>
+                <p class="brand-purpose">🔎 सरकारी मदद खोजें / Find government support</p>
+                <div class="audio-assist" aria-label="Spoken help">
+                    <label for="audio-language">आवाज़ / Audio</label>
+                    <select id="audio-language" aria-label="Audio language">
+                        <option value="hi-IN">हिंदी में सुनें / Hindi</option>
+                        <option value="en-IN">Listen in English</option>
+                    </select>
+                    <button class="listen-button" type="button" data-audio-guide="login" aria-pressed="false">
+                        <span aria-hidden="true">🔊</span> मदद सुनें / Listen
+                    </button>
+                    <span id="audio-status" class="audio-status" role="status" aria-live="polite"></span>
+                </div>
+                <h1 id="login-title">साइन इन करें / Sign in</h1>
+                <p class="form-intro">Enter your email and password to find help for your work. / अपना ईमेल और पासवर्ड डालकर अपने काम के लिए मदद खोजें।</p>
+
+                <form id="login-form">
+                    <div class="form-field">
+                        <label for="email">ईमेल / Email</label>
+                        <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="password">पासवर्ड / Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+                    </div>
+
+                    <button type="submit">साइन इन / Sign in</button>
+                </form>
+                <p id="login-status" class="status-message" role="status" aria-live="polite"></p>
+                <p class="form-switch">नया खाता? / New here? <a href="signup.html">खाता बनाएं / Create account</a></p>
+                <p class="demo-notice"><strong>🔒 सुरक्षित साइन इन / Sign in securely</strong><br>साइन इन के बाद अपनी योजनाएं देखें। / Sign in to see schemes for your work.</p>
+            </div>
+        </section>
+    </main>
+    <script src="yojnasetu.js" defer></script>
+</body>
+</html>

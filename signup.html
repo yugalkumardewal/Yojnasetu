@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>खाता बनाएं / Create account | Yojna Setu</title>
+    <link rel="stylesheet" href="yojnasetu.css">
+</head>
+<body>
+    <main class="page-shell">
+        <section class="login-panel" aria-labelledby="signup-title">
+            <div class="login-card">
+                <a class="logo-frame" href="yojnasetu.html" aria-label="Yojna Setu sign in">
+                    <img class="login-logo" src="yojnasetu-logo.png" alt="Yojna Setu — Connecting Schemes to People">
+                </a>
+                <p class="brand-purpose">🔎 सरकारी मदद खोजें / Find government support</p>
+                <div class="audio-assist" aria-label="Spoken help">
+                    <label for="audio-language">आवाज़ / Audio</label>
+                    <select id="audio-language" aria-label="Audio language">
+                        <option value="hi-IN">हिंदी में सुनें / Hindi</option>
+                        <option value="en-IN">Listen in English</option>
+                    </select>
+                    <button class="listen-button" type="button" data-audio-guide="signup" aria-pressed="false">
+                        <span aria-hidden="true">🔊</span> मदद सुनें / Listen
+                    </button>
+                    <span id="audio-status" class="audio-status" role="status" aria-live="polite"></span>
+                </div>
+                <h1 id="signup-title">खाता बनाएं / Create your account</h1>
+                <p class="form-intro">अपना खाता बनाएं और अपने काम के लिए सरकारी मदद खोजें। / Create an account to find government support for your work.</p>
+
+                <form id="signup-form">
+                    <div class="form-field">
+                        <label for="full-name">आपका नाम / Your name</label>
+                        <input type="text" id="full-name" name="name" placeholder="अपना पूरा नाम / Your full name" autocomplete="name" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="signup-email">ईमेल / Email</label>
+                        <input type="email" id="signup-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="signup-phone">मोबाइल नंबर / Mobile number</label>
+                        <input type="tel" id="signup-phone" name="phone" placeholder="+919876543210" autocomplete="tel" inputmode="tel" pattern="\+[1-9][0-9]{7,14}" aria-describedby="phone-hint" required>
+                        <small id="phone-hint" class="field-hint">भारत के लिए +91 और फिर अपना नंबर लिखें। / India: enter +91 followed by your number.</small>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="signup-password">पासवर्ड बनाएं / Create password</label>
+                        <input type="password" id="signup-password" name="password" placeholder="कम से कम 8 अक्षर / At least 8 characters" autocomplete="new-password" minlength="8" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="preferred-language">अपनी भाषा चुनें / Choose your language</label>
+                        <select id="preferred-language" name="language" required>
+                            <option value="as-IN">অসমীয়া / Assamese</option>
+                            <option value="bn-IN">বাংলা / Bengali</option>
+                            <option value="brx-IN">बड़ो / Bodo</option>
+                            <option value="doi-IN">डोगरी / Dogri</option>
+                            <option value="gu-IN">ગુજરાતી / Gujarati</option>
+                            <option value="hi-IN" selected>हिंदी / Hindi</option>
+                            <option value="kn-IN">ಕನ್ನಡ / Kannada</option>
+                            <option value="ks-IN">कॉशुर / Kashmiri</option>
+                            <option value="kok-IN">कोंकणी / Konkani</option>
+                            <option value="mai-IN">मैथिली / Maithili</option>
+                            <option value="ml-IN">മലയാളം / Malayalam</option>
+                            <option value="mni-IN">মেইতেই / Manipuri (Meitei)</option>
+                            <option value="mr-IN">मराठी / Marathi</option>
+                            <option value="ne-IN">नेपाली / Nepali</option>
+                            <option value="or-IN">ଓଡ଼ିଆ / Odia</option>
+                            <option value="pa-IN">ਪੰਜਾਬੀ / Punjabi</option>
+                            <option value="sa-IN">संस्कृतम् / Sanskrit</option>
+                            <option value="sat-IN">ᱥᱟᱱᱛᱟᱲᱤ / Santali</option>
+                            <option value="sd-IN">سنڌي / Sindhi</option>
+                            <option value="ta-IN">தமிழ் / Tamil</option>
+                            <option value="te-IN">తెలుగు / Telugu</option>
+                            <option value="ur-IN">اردو / Urdu</option>
+                            <option value="en-IN">English</option>
+                        </select>
+                    </div>
+
+                    <label class="consent-option">
+                        <input type="checkbox" name="consent" value="yes" required>
+                        <span>मैं खाता बनाने और अपनी भाषा में योजनाएं दिखाने के लिए अपना नाम, ईमेल और फ़ोन नंबर देने के लिए सहमत हूं। मेरा पासवर्ड सुरक्षित हैश के रूप में रखा जाएगा। / I agree to provide my name, email and phone number to create my account and personalize scheme recommendations in my preferred language. My password is stored as a secure hash.</span>
+                    </label>
+                    <button class="listen-button consent-listen" type="button" data-audio-consent aria-pressed="false">
+                        <span aria-hidden="true">🔊</span> सहमति सुनें / Listen to consent
+                    </button>
+
+                    <button type="submit">खाता बनाएं / Create account</button>
+                </form>
+                <p id="signup-status" class="status-message" role="status" aria-live="polite"></p>
+                <p class="form-switch">पहले से खाता है? / Already have an account? <a href="yojnasetu.html">साइन इन करें / Sign in</a></p>
+                <p class="demo-notice"><strong>आपकी जानकारी / Your information</strong><br>आपकी सहमति के बाद ही जानकारी सहेजी जाएगी। ईमेल और फ़ोन की अलग से पुष्टि नहीं होती। / Details are saved only after consent. Email and phone are not independently verified.</p>
+            </div>
+        </section>
+    </main>
+    <script src="yojnasetu.js" defer></script>
+</body>
+</html>
